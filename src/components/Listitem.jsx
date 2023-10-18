@@ -10,9 +10,15 @@ function ListItem({text, onDelete}){
         return ()=> {
             //destroy component
             console.log("cleanup");
-            
+
         }
     },[])
+
+
+    useEffect(()=>{
+        console.log("checked", checked);
+        if(checked) alert ("check");
+    },[checked]);
 
     const handleCheck = () => {
         

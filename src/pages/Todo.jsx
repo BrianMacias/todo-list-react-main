@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import ListItem from "../components/ListItem";
 import { v4 as uuidv4 } from "uuid";
+import { data } from "autoprefixer";
 
 function Todo() {
   // usestate -> {state, setstate}
@@ -18,8 +19,12 @@ function Todo() {
 //} ,)
 
 useEffect(() =>{
-    console.log("useEffect", todos);
-} ,[todos])
+   const getTodos = () =>{
+    fetch("https://jsonplaceholder.typicode.com/todos/1").then((response)=> response.json()).then((data) => {
+        console.log(data);
+    });
+   }
+} ,[])
 
   // Add a new todo
   const addTodo = () => {
